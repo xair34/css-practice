@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+<div></div>
+<style>
+  body{
+    width: 400px;
+    height: 300px;
+    position: relative;
+    background-color:#8C80BB;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  div {
+    width: 160px;
+    height: 160px;
+    background: #FCDFEB;
+  }
+  div:nth-child(1){
+    position:absolute;
+    top:16.5%;
+    left:35%;
+  }
+  div:nth-child(1):after{
+    content:'';
+    position:absolute;
+    background-color:#8C80BB;
+    top:25%;
+    left:50%;
+    width:40px;
+    height:40px;
+    z-index:10;
+  }
+  div:nth-child(1):before{
+    content:'';
+    position:absolute;
+    background-color:#8C80BB;
+    top:50%;
+    left:0%;
+    width:40px;
+    height:40px;
+    z-index:10;
+  }
+  div:nth-child(2){
+    position:absolute;
+    top:30%;
+    left:25%;
+  }
+  div:nth-child(2):before{
+    content:'';
+    position:absolute;
+    background-color:#8C80BB;
+    top:50%;
+    left:0%;
+    width:40px;
+    height:40px;
+    z-index:10;
+  }
+  div:nth-child(2):after{
+    content:'';
+    position:absolute;
+    background-color:#8C80BB;
+    top:50%;
+    left:50%;
+    width:40px;
+    height:40px;
+    z-index:10;
+  }
+  body::after{
+    content:'';
+    position:absolute;
+    background-color:#8C80BB;
+    top:70%;
+    left:35%;
+    width:40px;
+    height:40px;
+    z-index:10;
+  }
+</style>
+</body>
+</html>
