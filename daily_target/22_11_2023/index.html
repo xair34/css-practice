@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Challenge link - https://cssbattle.dev/play/a2yT2JZAvibXZRcrl2Qu -->
+    <div class='wrapper'>
+        <div></div>
+      </div>
+      <style>
+        *{
+          box-sizing:border-box;
+        }
+        /* Not needed for cssbattle.dev link */
+        body{
+            width: 400px;
+            height: 300px;
+            position: relative;
+            margin: auto;
+        }
+        /* End */
+        body, .wrapper{
+            
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          background-color: #602054;
+        }
+        .wrapper{
+          border: 20px solid #ECDFEA;
+          width:280px;
+          height: 180px;
+        }
+        .wrapper div {
+          width: 200px;
+          height: 100px;
+          background: transparent;
+          border:20px solid #ECDFEA;
+          position:relative;
+        }
+        .wrapper div::after, .wrapper div::before{
+          content:'';
+          height:40px;
+          width:20px;
+          background-color:#ECDFEA;
+          position:absolute;
+          border: 20px solid #602054;
+          border-bottom:none;
+          border-top: none;
+        }
+        .wrapper div::after{
+          top:-60px;
+          left:50px;
+        }
+        .wrapper div::before{
+          top:80px;
+          left:50px;
+        }
+        .wrapper::before, .wrapper::after{
+          content:'';
+          height:20px;
+          width:40px;
+          background-color:#ECDFEA;
+          position:absolute;
+          border: 20px solid #602054;
+          border-left:none;
+          border-right: none;
+        }
+        .wrapper::before{
+          top:120px;
+          left:60px;
+        }
+      
+        .wrapper::after{
+          top:120px;
+          left:300px;
+        }
+      </style>
+</body>
+</html>
