@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Challenge URL - https://cssbattle.dev/play/b5yHzSc2geCiyQsmOO0J -->
+    <div class='wrapper'>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <style>
+        body{
+            /* Not needed for cssbattle.dev challenge */
+            position: relative;
+            width: 400px;
+            height: 300px;
+            margin: auto;
+            /*End  */
+          background-color:#E0DA8E;
+          display:flex;
+          justify-content:center;
+          align-items:center;}
+        .wrapper{
+          display:flex;
+        }
+        .wrapper div {
+          height: 60px;
+          width:30px;
+          background:transparent;
+          border:30px solid #898329;
+        }
+        .wrapper div:not(:first-child){
+          border-left:none;
+        }
+      </style>
+</body>
+</html>
