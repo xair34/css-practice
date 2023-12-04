@@ -2,22 +2,23 @@
     padding: 0;
     margin: 0;
     font-family: 'Work sans', sans-serif;
-    color: white;
+    color: #b5b5b5;
     font-weight: 400;
     box-sizing: border-box;
 }
 body{
     background-color: #222;
-    overflow-x: hidden;
+    overflow: hidden;
+
 }
 header{
-    background-color: #55d6aa;
+    background-color: #222;
+    color: #b5b5b5;
 }
 .logo{
     margin: .5em 0;
     padding: 25px 10px;
-    color: #444;
-    border: 1px solid #444;
+    border: 1px solid white;
 }
 .container{
     width: 80%;
@@ -39,7 +40,6 @@ nav ul{
 a{
     text-decoration: none;
     text-transform: uppercase;
-    color:  #444;
 }
 .sr-only{
     position: absolute;
@@ -52,6 +52,9 @@ a{
     border: 0;
 }
 @media screen and (max-width: 35em){
+    .container{
+        justify-content: center;
+    }
     nav ul{
         gap: 2em;
         position: fixed;
@@ -71,7 +74,7 @@ a{
     }
     nav ul a {
         text-transform: capitalize;
-        color: white;
+        color: #ffffff;
     }
     .mobileNavToggle{
         display: block;
@@ -85,5 +88,36 @@ a{
         top: 2rem;
         right: 2rem;
         z-index: 9999;
+        background-color: #b5b5b5;
     }
+}
+
+.content{
+    background-color: white;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+}
+.sc-header{
+    display: flex;
+    gap: 2em;
+}
+.sc-container{
+    margin: 0 auto;
+    height: 100vh;
+    min-height: 36em;
+    scroll-snap-align: center;
+}
+.sc-container:first-child{
+    background-color: hsl(263 55% 52%);
+    padding: 3em;
+    color: white;
+}
+.sc-container:not(:first-child){
+    filter: hue-rotate(15deg);
+}
+
+.position{
+    color: #9e9e9e;
 }
