@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Challenge URL - https://cssbattle.dev/play/41NbrLVqZBOYlft9D7i1 -->
+    <div></div><div></div><div></div>
+<style>
+  *{box-sizing:border-box;}
+  body{
+    /* Not needed for the challenge */
+    width: 400px;
+    height: 300px;
+    margin: auto;
+    /* End */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:#F37053;
+    position:relative;
+  }
+  div {
+    width: 220px;
+    height: 100px;
+    background: #670000;
+  }
+  div:first-child, div:nth-child(3){
+    width:120px;
+    height:120px;
+    position:absolute;
+    border: 20px solid #F37053;
+    border-radius:100%;
+  }
+  div:first-child{
+    top:11.3%;
+    left:35%;
+  }
+  div:nth-child(3){
+    top:47%;
+    left:35%;
+  }
+</style>
+</body>
+</html>
