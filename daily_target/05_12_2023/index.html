@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Challenge URL - https://cssbattle.dev/play/qdXqnhLrrA9xGpKGGDic -->
+    <div></div>
+    <div></div>
+    <style>
+    *{
+        box-sizing:border-box;
+    }
+    body{
+        /* Not needed for cssbattle.dev challenge */
+        width: 400px;
+        height: 300px;
+        position: relative;
+        margin: auto;
+        /* End */
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background-color:#004563;
+    }
+    div:first-child {
+        box-sizing:border-box;
+        width: 210px;
+        height: 210px;
+        background: transparent;
+        border:30px solid #d4effc;
+        position:relative;
+        z-index:1;
+    }
+    div:first-child::before{
+        content:'';
+        width:30px;
+        height:211px;
+        position:absolute;
+        top:50%;
+        left:30%;
+        transform:translate(-50%,-50%);
+        background-color:#004563;
+        z-index:10;
+    }
+    div:first-child::after{
+        content:'';
+        width:30px;
+        height:211px;
+        position:absolute;
+        top:50%;
+        left:70%;
+        transform:translate(-50%,-50%);
+        background-color:#004563;
+        z-index:10;
+    }
+    div:nth-child(2){
+        background-color:#D4EFFC;
+        width:200px;
+        height:30px;
+        position:absolute;
+        top:40%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        z-index:100;
+    }
+    div:nth-child(2)::before{
+        content:'';
+        background-color:#D4EFFC;
+        width:200px;
+        height:30px;
+        position:absolute;
+        top:250%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        z-index:100;
+    }
+    div:nth-child(2)::after{
+        content:'';
+        background-color:#D4EFFC;
+        width:30px;
+        height:50px;
+        position:absolute;
+        top:150%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        z-index:100;
+    }
+</style>
+</body>
+</html>
