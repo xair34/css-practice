@@ -1,0 +1,101 @@
+:root{
+
+    --primary-scrissors-gradient: radial-gradient(hsl(39, 89%, 49%) , hsl(40, 84%, 53%));
+    --primary-paper-gradient: radial-gradient(hsl(230, 89%, 62%) , hsl(230, 89%, 65%));
+    --primary-rock-gradient: radial-gradient(hsl(349, 71%, 52%) , hsl(349, 70%, 56%));
+    --primary-lizard-gradient: radial-gradient(hsl(261, 73%, 60%) , hsl(261, 72%, 63%));
+    --primary-cyan: radial-gradient(circle at 30%, hsl(189, 59%, 53%) 30%, hsl(189, 58%, 57%));
+
+
+    --netural-dark: hsl(229,25%,31%);
+    --netural-score-text: hsl(229,64%,46%);
+    --netural-header-outline: hsl(217, 16%, 45%);
+
+    --background: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+
+
+    --font-family: 'Barlow Semi Condensed', sans-serif;
+    --font-weight-600: 600;
+    --font-weight-700: 700;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    color: white;
+    font-weight: var(--font-weight-600);
+    box-sizing: border-box;
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+body{
+    background: var(--background);
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: contain;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+.game-version-and-score{
+    border: 2px solid var(--netural-header-outline);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+.score{
+    background-color: white;
+    padding: 16px;
+    border-radius: 10px;
+}
+.score p:not(.score-counter){
+    color: var(--netural-score-text);
+    text-align: center;
+    text-transform: uppercase;
+}
+.score-counter{
+    font-weight: var(--font-weight-700);
+    color: var(--netural-header-outline);
+    font-size: 36px;
+    text-align: center;
+}
+.game-container{
+    background: url(./images/bg-triangle.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.play-option{
+    border-radius: 100%;
+    justify-content: center;
+    display: flex;
+    width: 30%;
+    padding: 24px;
+    align-items: center;
+}
+.scissors{
+    background: var(--primary-scrissors-gradient);
+}
+.rock{
+    background:var(--primary-rock-gradient);
+}
+.paper{
+    background:var(--primary-paper-gradient);
+}
