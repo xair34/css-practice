@@ -6,6 +6,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@700&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="./script.js"></script>
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="./style.css">
   <title>Frontend Mentor | Rock, Paper, Scissors</title>
@@ -37,10 +39,24 @@
       <div class="scissors play-option"><img src="./images/icon-scissors.svg" alt=""></div>
       <div class="rock play-option"><img src="./images/icon-rock.svg" alt=""></div>
     </div>
-    <div class="attribution">
+    <div class="rules">
+      <button class="button-rules">Rules</button>
+      <div class="overlay "></div>
+      <div class="container-rules">
+        <div class="text-and-close-button">
+          <p>Rules</p>
+          <p class="close-rule-sheet">X</p>
+        </div>
+        <div class="rule-sheet">
+          <img src="./images/image-rules.svg" alt="" >
+        </div>
+      </div>
+      
+    </div>
+    <!-- <div class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
       Coded by <a href="#">Your Name Here</a>.
-    </div>
+    </div> -->
   </div>
 </body>
 </html>
