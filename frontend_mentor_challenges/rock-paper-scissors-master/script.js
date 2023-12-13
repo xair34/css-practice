@@ -15,4 +15,8 @@ $(function(){
         ruleSheetElement.removeClass('visible-rules');
         overlayElement.removeClass('overlay-visible');
     })
+    $('.play-option').on('click', function(){
+        $('.play-option').removeClass('selected');
+        $(this).addClass('selected')
+    })
 })
