@@ -45,6 +45,7 @@ body{
     width: 25em;
     display: grid;
     gap: 2em;
+    overflow: visible;
 }
 .game-version-and-score{
     border: 2px solid var(--netural-header-outline);
@@ -78,7 +79,7 @@ body{
     justify-content: center;
     width: 100%;
 }
-.game-wrapper{
+.step-one{
     background: url(./images/bg-triangle.svg);
     background-size: 150px;
     background-repeat: no-repeat;
@@ -98,10 +99,12 @@ body{
     display: flex;
     padding: 24px;
     align-items: center;
-    cursor: pointer;
     transition: scale .2s ease-in-out;
 }
-.play-option:hover{
+.step-one .play-option{
+    cursor: pointer;
+}
+.step-one .play-option:hover{
     scale: 1.2;
 }
 .scissors{
@@ -179,11 +182,28 @@ body{
 .close-rule-sheet{
     cursor: pointer;
 }
+
+.step-two:not(.step-two-visible){
+    /* display: none; */
+}
+.step-two{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.play-again-btn{
+    padding: 8px 24px;
+    width: 180px;
+    color: var(--netural-dark);
+    font-weight: var(--font-weight-600);
+    border-radius: 10px;
+}
+
 @media (max-width:445px){
     .content{
         width: 100%;
     }
-    .game-wrapper{
+    .step-one{
         width: 100%;
     }
     .rules{
