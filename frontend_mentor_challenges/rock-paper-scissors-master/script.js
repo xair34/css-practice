@@ -3,7 +3,14 @@ $(function(){
     let overlayElement = $('.overlay');
     let choiceArray = ['rock','paper','scissors'];
     let imgArray = ['./images/icon-rock.svg','./images/icon-paper.svg','./images/icon-scissors.svg'];
-    localStorage.setItem('Score', 0);
+    if(localStorage.getItem('Score') === null){
+        localStorage.setItem('Score', 0);
+    }
+    else{
+        $('.score-counter').text(localStorage.getItem('Score'))
+    }
+    console.log(localStorage);
+
     $('.button-rules').on('click',function(){
         if(!ruleSheetElement.hasClass('visible-rules')){
             ruleSheetElement.addClass('visible-rules');
@@ -18,11 +25,11 @@ $(function(){
         ruleSheetElement.removeClass('visible-rules');
         overlayElement.removeClass('overlay-visible');
     })
-    $('.play-option').on('click', function(){
+    $('.step-one .play-option').on('click', function(){
         $('.play-option').removeClass('selected');
         $(this).addClass('selected');
-        $('.step-two').addClass('step-two-visible');
-
+        $('.step-one').addClass('hide');
+        $('.step-two').addClass('show');
 
         let classList = $(this).attr('class').split(/\s+/);
         let imgSrc = $(this).children().eq(0).attr('src');
@@ -44,19 +51,29 @@ $(function(){
         $('.computer-choice>div>img').attr('src', computerImageSrc);
         console.log(determineWinner());
         if(determineWinner() == 'player'){
-            $('.win-lose-text').text('You win')
+            $('.computer-choice').removeClass('winner');
+            $('.player-choice').addClass('winner');
+            $('.win-lose-text').text('You win');
             updateScore(1);
         }
         else if(determineWinner() == 'computer'){
+            $('.computer-choice').addClass('winner');
+            $('.player-choice').removeClass('winner');
             $('.win-lose-text').text('You Lose');
             updateScore(-1);
         }
         else{
+            $('.computer-choice').removeClass('winner');
+            $('.player-choice').removeClass('winner');
             $('.win-lose-text').text('Game is a tie');
             updateScore(0);
         }
     })
-
+    $('.play-again-btn').on('click', function(){
+        $('.step-one').removeClass('hide');
+        $('.step-two').removeClass('show')
+        $('.step-two').addClass('hide');
+    })
     function getRandomChoice(array){
         let randomN = Math.floor(Math.random() * array.length);
         return randomN;
