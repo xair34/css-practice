@@ -30,7 +30,11 @@ $(function(){
         $(this).addClass('selected');
         $('.step-one').addClass('hide');
         $('.step-two').addClass('show');
-
+        $(".step-two").removeClass('hide');
+        $(".game-container").addClass('on');
+        $(".on").one("animationend webkitAnimationEnd oAnimationEn MSAnimationEnd", function(){
+            $(this).removeClass('on');
+        });
         let classList = $(this).attr('class').split(/\s+/);
         let imgSrc = $(this).children().eq(0).attr('src');
         let randomNumber = getRandomChoice(choiceArray);
@@ -73,6 +77,11 @@ $(function(){
         $('.step-one').removeClass('hide');
         $('.step-two').removeClass('show')
         $('.step-two').addClass('hide');
+        $(".game-container").addClass('on');
+        $(".on").one("animationend webkitAnimationEnd oAnimationEn MSAnimationEnd", function(){
+            $(this).removeClass('on');
+        });
+
     })
     function getRandomChoice(array){
         let randomN = Math.floor(Math.random() * array.length);

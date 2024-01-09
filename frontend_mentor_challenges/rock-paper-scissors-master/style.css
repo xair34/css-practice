@@ -37,23 +37,32 @@ body{
     height: 100vh;
     background-size: contain;
     background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .content{
-    width: 25em;
+    --padding-inline: 2rem;
+    --content-max-width: 70ch;
+    --breakout-max-width: 85ch;
+
+    --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2); 
+
     display: grid;
+    grid-template-columns: [full-width-start] minmax(var(--padding-inline), 1fr) [breakout-start] minmax(0,var(--breakout-size)) [content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width)) [content-end] minmax(0, var(--breakout-size)) [breakout-end] minmax(var(--padding-inline),1fr) [full-width-end];
     gap: 2em;
-    overflow: visible;
+}
+.content > :not(.breakout){
+    grid-column: content;
+}
+
+.content-grid .game-wrapper > .breakout{
+    grid-column: breakout;
 }
 .game-version-and-score{
     border: 2px solid var(--netural-header-outline);
     border-radius: 10px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
     justify-content: space-between;
     padding: 16px;
-    align-items: center;
 }
 .game-version-and-score img{
     width: 100%;
@@ -74,20 +83,14 @@ body{
     font-size: 36px;
     text-align: center;
 }
-.game-container{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
 .step-one{
     background: url(./images/bg-triangle.svg);
-    background-size: 150px;
+    background-size: 200px;
     background-repeat: no-repeat;
     background-position: center;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     justify-content: center;
-    gap: 2em;
+    row-gap: 3em;
 }
 .step-one, .step-one>* {
     position: relative;
@@ -127,7 +130,7 @@ body{
     box-shadow: 0 5px hsl(230 48% 35% / 1), inset 0 5px #00000026;
 }
 .container-rules{
-    display: none;
+    visibility: hidden;
     position: absolute; 
     top: 50%;
     left: 50%;
@@ -165,8 +168,9 @@ body{
 .close-rule-sheet:hover{
     filter: brightness(0.1);
 }
-.rules{
-    justify-self: flex-end;
+.rules.rules{
+    grid-column: breakout-end;
+    grid-row: 3;
 }
 .overlay{
     width: 100vw;
@@ -177,10 +181,11 @@ body{
     z-index: 10;
     top: 0;
     left: 0;
-    display: none;
+    visibility: hidden;
 }
 .overlay-visible, .visible-rules{
-    display: block;
+    position: absolute;
+    visibility: visible;
 }
 
 .close-rule-sheet{
@@ -188,20 +193,25 @@ body{
 }
 
 .step-two:not(.step-two-visible){
-    display: none;
+    visibility: hidden;
+    position: absolute;
 }
 .step-two{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
+.play-again{
+    width: 200px;
+}
 .play-again-btn{
     padding: 8px 24px;
-    width: 180px;
+    width: 100%;
+    max-width: 180px;
     color: var(--netural-dark);
     font-weight: var(--font-weight-600);
     border-radius: 10px;
+    margin-top: .7em;
 }
 .play-again-btn:hover{
     filter: brightness(.7);
@@ -211,11 +221,24 @@ body{
     position: relative;
     z-index: 10;
 }
+.player-choice p, .computer-choice p{
+    margin-bottom: 2em;
+}
 .step-one.hide{
-    display: none;
+    visibility: hidden;
+    position: absolute;
 }
 .step-two.show{
     display: flex;
+    visibility: visible;
+    position: relative;
+    gap: 2em;
+}
+.step-two.show > *{
+    text-align: center;
+}
+.win-lose-text{
+    font-size: 32px;
 }
 /* .player-choice::after{
     content: '';
@@ -232,7 +255,9 @@ body{
     transform: translate(-50%, -50%);
     z-index: 1;
 } */
-
+.on{
+    perspective: 1000px;
+}
 @media (max-width:445px){
     .content{
         width: 100%;
@@ -245,5 +270,42 @@ body{
     }
     .game-version-and-score img{
         width: 70%;
+    }
+}
+@media (max-width:700px){
+    .content{
+        --padding-inline: 1rem;
+        --content-max-width: 60ch;
+        --breakout-max-width: 75ch;
+
+        --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2); 
+
+        grid-template-columns: [full-width-start] minmax(var(--padding-inline), 1fr) [content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width)) [content-end] minmax(0, var(--breakout-size)) [full-width-end];
+        overflow: hidden;
+    }
+}
+.game-container .step-one.hide .play-option.selected{
+    animation: flipboard 4s ease-in-out;
+}
+@keyframes flipboard{
+    0%{
+        visibility: visible;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    35%{
+        top: 50%;
+        left: 50%;
+    }
+    65%{
+        left: 0;
+    }
+    90%{
+        top: 0;
+    }
+    100%{
+        visibility: hidden;
+        position: relative;
     }
 }
