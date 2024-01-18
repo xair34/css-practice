@@ -39,6 +39,7 @@ body{
     background-position: center;
 }
 .content{
+    position: relative;
     --padding-inline: 2rem;
     --content-max-width: 70ch;
     --breakout-max-width: 85ch;
@@ -91,13 +92,14 @@ body{
     display: grid;
     justify-content: center;
     row-gap: 3em;
+    /* transition: opacity 2s; */
 }
 .step-one, .step-one>* {
     position: relative;
     z-index: 100;
 }
 
-.play-option{
+.play-option:not(.shuffling-choices){
     width: 20%;
     min-width: 130px;
     border-radius: 100%;
@@ -225,7 +227,8 @@ body{
     margin-bottom: 2em;
 }
 .step-one.hide{
-    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
     position: absolute;
 }
 .step-two.show{
@@ -274,6 +277,7 @@ body{
 }
 @media (max-width:700px){
     .content{
+        position: relative;
         --padding-inline: 1rem;
         --content-max-width: 60ch;
         --breakout-max-width: 75ch;
@@ -284,28 +288,24 @@ body{
         overflow: hidden;
     }
 }
-.game-container .step-one.hide .play-option.selected{
+.content .step-one.hide .play-option.selected{
     animation: flipboard 4s ease-in-out;
 }
-@keyframes flipboard{
+/* @keyframes flipboard{
     0%{
         visibility: visible;
         position: absolute;
         top: 0;
         left: 0;
+        scale: 1;
     }
-    35%{
+    50%{
         top: 50%;
         left: 50%;
-    }
-    65%{
-        left: 0;
-    }
-    90%{
-        top: 0;
     }
     100%{
         visibility: hidden;
         position: relative;
+        scale: 1;
     }
-}
+} */

@@ -9,7 +9,6 @@ $(function(){
     else{
         $('.score-counter').text(localStorage.getItem('Score'))
     }
-    console.log(localStorage);
 
     $('.button-rules').on('click',function(){
         if(!ruleSheetElement.hasClass('visible-rules')){
@@ -53,7 +52,6 @@ $(function(){
 
         $('.computer-choice>div').addClass(comptuerChoice);
         $('.computer-choice>div>img').attr('src', computerImageSrc);
-        console.log(determineWinner());
         if(determineWinner() == 'player'){
             $('.computer-choice').removeClass('winner');
             $('.player-choice').addClass('winner');
