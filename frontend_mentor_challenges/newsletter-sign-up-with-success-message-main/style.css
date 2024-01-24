@@ -11,8 +11,13 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+body{
+    background: var(--neutral-color-charcoal-grey);
+}
 form{
     width: 100%;
+    background:var(--neutral-color-white);
+    
 }
 .wrapper{
     width: 100%;
@@ -25,7 +30,8 @@ form{
 
 .newsletter-img{
     content: url(./assets/images/illustration-sign-up-mobile.svg);
-    max-width: 100%;
+    width: 100%;
+    max-height: 100%;
 }
 
 ul{
@@ -48,7 +54,7 @@ input[type=email]{
     border: 1px solid var(--neutral-color-grey);
     margin-top: 1rem;
 }
-input[type=submit]{
+input[type=button]{
     color: white;
     width: 100%;
     padding: 12px 16px;
@@ -57,14 +63,28 @@ input[type=submit]{
     margin-top: 1rem;
 }
 @media (min-width: 600px){
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
     form{
-        width: 50%;
+        max-width: 80%;
+        
         margin: auto;
+        padding: 10px 16px;
+        border-radius: 30px;
     }
     .wrapper{
         flex-direction: row;
+        gap: 4rem;
+    }
+    li{
+        margin-top: 1rem;
     }
     .newsletter-img{
         content: url(./assets/images/illustration-sign-up-desktop.svg);
+        display: block;
     }
 }
